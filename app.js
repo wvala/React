@@ -127,3 +127,17 @@ get name() {
 }
 
 ReactDOM.render(<MyName />, document.getElementById('app'));
+
+// Example of event listeners being given to components
+
+class Button extends React.Component {
+  scream() {
+    alert('AAAAAAAAHHH!!!!!');
+  }
+
+  render() {
+    return <button onClick={this.scream}>AAAAAH!</button>;
+  }
+}
+
+ReactDOM.render(<Button />, document.getElementById('app'));
