@@ -1,2 +1,2 @@
 # React
-basic react practice
+Here I will be documenting things I find interesting / helpful as I get to grips with React.
