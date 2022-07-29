@@ -108,3 +108,33 @@ export default function Shop() {
     return <p>Loading..</p>;
   }
 }
+
+// Another example of splitting 1 data response into 3 different pieces of information for more efficient loading
+
+export default function SocialNetwork() {
+  const [menu, setMenu] = useState(null);
+  useEffect(() => {
+  get('/menu').then(
+    (response) => {
+      setMenu(response.data);
+    });
+  }, []);
+
+  const [newsFeed, setNewsFeed] = useState(null);
+  useEffect(() => {
+    get('/news-feed').then(
+      (response) => {
+        setNewsFeed(response.data);
+      }
+    );
+  }, []);
+
+  const [friends, setFriends] = useState(null);
+  useEffect(() => {
+    get('/friends').then(
+      (response) => {
+        setFriends(response.data);
+      }
+    );
+  }, []);
+}
