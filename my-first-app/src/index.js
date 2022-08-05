@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-function Square (props) { // Child of Board, doesn't hold state so is now a controlled component
-    return (
-      <button className="square" onClick={props.onClick}>
-        {props.value}
-      </button>
-    );
+function Square (props) {
+  return ( // component is a function as it only renders, and doesn't handle any logic
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
-class Board extends React.Component { // Parent of Square, controlled component since it doesn't have a state
+class Board extends React.Component {
   renderSquare(i) {
     return ( // Parent renders multiple children using this method
       <Square
-        value={this.state.squares[i]}
+        value={this.props.squares[i]} // props stands for "properties", info passed to the component
         onClick={() => this.props.onClick(i)}
       />
     )
